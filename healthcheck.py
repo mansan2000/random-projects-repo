@@ -1,3 +1,11 @@
+#requirements to run script
+        #pip/pip3 install selenium
+        #pip/pip3 install pyimgur 
+        #pip/pip3 install twilio
+        #download chromedriver and allow it to be executable. Change PATH var to be path to chromedriver
+
+
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -62,7 +70,7 @@ uploaded_image = im.upload_image(PATH, title="Uploaded with PyImgur")
 
 #twilio code for sending the image to my phone
 account_sid = 'AC14f5e19d497b00912b95afbdcbc1a697'
-auth_token = '8427bab06299a562e98910883e93b96e'
+auth_token = '500a9d791ce35add9525a4a9e3f547f5'
 client = Client(account_sid, auth_token)
 
 message = client.messages \
@@ -73,7 +81,7 @@ message = client.messages \
                      to='+13347074842'                                      #phone number to send the screenshot to 
                  )
 
-print(message.sid)
+print("Sent")
 
 time.sleep(5)
 driver.quit()
