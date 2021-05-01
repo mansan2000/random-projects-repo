@@ -5,8 +5,11 @@
         #download chromedriver and allow it to be executable. Change PATH var to be path to chromedriver
 
 
-
+import selenium 
 from selenium import webdriver
+#test for webriver fix
+from webdriver_manager.chrome import ChromeDriverManager
+
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -29,7 +32,7 @@ PATH = "/home/emanuel/Documents/code_test/chromedriver"
 
 
 #driver = webdriver.Chrome(PATH, options=options) #headless mode
-driver = webdriver.Chrome(PATH,) #non headless mode
+driver = webdriver.Chrome(ChromeDriverManager().install()) #non headless mode
 driver.implicitly_wait(10)
 
 #open page 
@@ -63,10 +66,10 @@ except NoSuchElementException:
 
 #upload screenshot to imgur so that I can access it with a url
 CLIENT_ID = "2c17993a469b06f"
-PATH = "screenshot.png"
+PATH1 = "screenshot.png"
 
 im = pyimgur.Imgur(CLIENT_ID)
-uploaded_image = im.upload_image(PATH, title="Uploaded with PyImgur")
+uploaded_image = im.upload_image(PATH1, title="Uploaded with PyImgur")
 
 #twilio code for sending the image to my phone
 account_sid = 'AC14f5e19d497b00912b95afbdcbc1a697'
